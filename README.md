@@ -1,71 +1,80 @@
-# 米游社商品兑换工具
-<div align="left">
-  <a href="https://www.codefactor.io/repository/github/ljzd-pro/mys_goods_tool" target="_blank">
-    <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/ljzd-pro/mys_goods_tool/badge?style=for-the-badge">
-  </a>
-  <a href="https://github.com/Ljzd-PRO/Mys_Goods_Tool/releases/latest" target="_blank">
-    <img alt="最新发行版" src="https://img.shields.io/github/v/release/Ljzd-PRO/Mys_Goods_Tool?logo=python&style=for-the-badge">
-  </a>
-  <a href="https://github.com/Ljzd-PRO/Mys_Goods_Tool/commits/" target="_blank">
-    <img alt="最后提交" src="https://img.shields.io/github/last-commit/Ljzd-PRO/Mys_Goods_Tool?style=for-the-badge">
-  </a>
-  <a href="https://github.com/Ljzd-PRO/Mys_Goods_Tool/actions/workflows/codeql-analysis.yml" target="_blank">
-    <img alt="GitHub CodeQL 代码检查" src="https://img.shields.io/github/workflow/status/Ljzd-PRO/Mys_Goods_Tool/CodeQL?logo=github&style=for-the-badge">
-  </a>
+<div>
+  <img alt="Mys_Goods_Tool 预览" src="https://user-images.githubusercontent.com/63289359/235797444-21a86294-609e-4c7a-9d7d-5d3683fe6ab2.png" width="45%" />
+  <img alt="Mys_Goods_Tool 预览2" src="https://user-images.githubusercontent.com/63289359/235799237-3039c3e0-8fdb-4c12-957b-afb50f34625c.png" width="45%" />
 </div>
 
-**🎉 更新：可通过手机验证登录一键获取Cookie，不再需要抓包([🔗v1.4.0](https://github.com/Ljzd-PRO/Mys_Goods_Tool/releases/tag/v1.4.0))**
+# 米游社商品兑换工具
 
-**🎉 iOS iSH ([🔗AppStore](https://apps.apple.com/us/app/ish-shell/id1436902243)｜[🔗GitHub](https://github.com/ish-app/ish)) 可运行，[🔗release](https://github.com/Ljzd-PRO/Mys_Goods_Tool/releases) 有已经打包好的**  
-*（附：[🔗iOS iSH 运行本程序的方法](./Docs/iSH.md)）*
+<div>
+  <img alt="CodeFactor" src="https://www.codefactor.io/repository/github/ljzd-pro/mys_goods_tool/badge?style=for-the-badge">
+  <img alt="最新发行版" src="https://img.shields.io/github/v/release/Ljzd-PRO/Mys_Goods_Tool?logo=python&style=for-the-badge">
+  <img alt="最后提交" src="https://img.shields.io/github/last-commit/Ljzd-PRO/Mys_Goods_Tool?style=for-the-badge">
+  <img alt="代码行数" src="https://img.shields.io/tokei/lines/github/Ljzd-PRO/Mys_Goods_Tool?style=for-the-badge">
+  <img alt="构建结果" src="https://img.shields.io/github/actions/workflow/status/Ljzd-PRO/Mys_Goods_Tool/build-v2.yml?event=pull_request&style=for-the-badge">
+  <img alt="Python版本兼容性测试" src="https://img.shields.io/github/actions/workflow/status/Ljzd-PRO/Mys_Goods_Tool/python-package.yml?event=pull_request&label=Versions%20Test&style=for-the-badge">
+</div>
 
-米游社米游币可兑换的商品通常份数很少，担心抢不到的话可以使用这个脚本，可设置多个商品。
+### 更新说明
 
-建议同时自己也用手机操作去抢，以免脚本出问题。
+#### 2023.10.11
+由于无法解决兑换失败，兑换请求结果状态码 `1028` 的问题，以及个人安排等原因，本工具将停止更新
+
+v2.1.0
+
+- 在兑换开始后的一段时间内不断尝试兑换，直到成功
+- 兑换开始后将不会延迟兑换，用户数据文件中 `preference.exchange_latency` 将作为同一线程下每个兑换请求之间的时间间隔
+- 兑换请求日志内容增加了发送请求时的时间戳
+
+## 功能和特性
+
+- [x] 使用 [Textual](https://github.com/Textualize/textual) 终端图形界面库，支持 Windows / Linux / macOS 甚至可能是移动端SSH客户端
+- [x] 短信验证码登录（只需接收一次验证码）
+- [x] 内置人机验证页面，无需前往官网验证
+- [x] 多账号支持
+- [x] 支持米游社所有分区的商品兑换
+
+### 预览图
+
+<details>
+  <summary>短信验证登录</summary>
+  <img src="https://user-images.githubusercontent.com/63289359/235790425-7c502a69-baac-4ced-ba07-d068a88a7ae9.png" alt="短信验证登录页面" />
+  <img src="https://user-images.githubusercontent.com/63289359/235790979-85954be8-023f-47e0-bb69-bb16385905d4.png" alt="人机验证页面" />
+</details>
+
+<details>
+  <summary>管理兑换计划</summary>
+  <img src="https://user-images.githubusercontent.com/63289359/235791200-d1a7c8f0-9a9a-4fcc-91bf-69fe397e6420.png" alt="选择目标商品页面" />
+  <img src="https://user-images.githubusercontent.com/63289359/235791332-3d8ea836-7d0b-4dbf-b643-81c65eaa5082.png" alt="确认添加计划页面" />
+  <img src="https://user-images.githubusercontent.com/63289359/235791435-69edf6f7-9abf-4c81-8da4-44a486c6d362.png" alt="管理计划页面" />
+</details>
+
+<details>
+  <summary>进入兑换模式</summary>
+  <img src="https://user-images.githubusercontent.com/63289359/235791620-bf32692d-a521-49b3-bf2a-23d7012b6fff.png" alt="兑换模式页面" />
+</details>
 
 ## 使用说明
 
-### 第1⃣️步 配置`config.ini`文件，包含以下参数
+参考 [🛠️ 下载安装](https://github.com/Ljzd-PRO/Mys_Goods_Tool/wiki/Installation)
 
-**[Config]**
-|  参数   | 说明  |
-|  ----  | ----  |
-| Cookie | **用户Cookies数据**<br>可通过`tool.py`工具直接获取（示例中两端的引号可有可无）<br>**兑换游戏内物品时 `stoken` 为必需项**<br>*（附：[🔗`tool` 工具使用说明](./Docs/tool.md)）* |
-| Time | **商品兑换活动开始时间**<br>（按照 `2022-1-1 00:00:00` 格式） |
-| Address_ID | **送货地址ID**<br>可用 `tool.py` 信息查询工具进行查询<br>*（附：[🔗`Address_ID` ~~手动抓包~~获取方法](./Docs/Address_ID.md)）* |
-| Good_ID | **要兑换的商品ID列表**<br>所有兑换任务会同时执行。可用 `tool.py` 信息查询工具进行查询（用逗号 , 分隔）<br>*（附：[🔗`tool` 工具使用说明](./Docs/tool.md)）* |
-| UID | **游戏UID**<br>可选，如果要兑换游戏内物品则需要填写，只能填写一个UID。 |
+## 常见问题
 
-**[Preference]**
-|  参数   | 说明  |
-|  ----  | ----  |
-| Check_Network | 是否自动检测网络连接情况<br>（是: 填入 1, 否: 填入 0）(`ping api-takumi.mihoyo.com`) |
-| Check_Time | 每隔多久检查一次网络连接情况<br>（单位 秒） |
-| Stop_Check | 距离开始兑换还剩多久停止检查网络<br>（单位 秒） |
-| Thread | 每个商品使用多少线程进行兑换<br>（避免出现卡在单个兑换请求的现象，如果目标可兑换数量超过一个建议线程为1） |
+参考 [❓ 常见问题](https://github.com/Ljzd-PRO/Mys_Goods_Tool/wiki/Troubleshooting)
 
-**示例**
-```ini
-[Config]
-cookie = "ltuid=123456789;login_ticket=abcDEFijkLMN;account_id=123456789;ltoken=DEFijkLMNabc;cookie_token=ijkLMNabcDEF;stoken=LMNabcDEFijk;mid=LMNabc;"
-time = 2022-6-8 19:00:00
-address_id = 13911
-good_id = 2022053111713, 2022053111397
-uid = 987654321
+## 代码结构
 
-[Preference]
-check_network = 1
-check_time = 10
-stop_check = 30
-thread = 3
-```
-
-### 第2⃣️步 运行`main.py`或运行[🔗已经编译好的程序](https://github.com/Ljzd-PRO/Mys_Goods_Tool/releases)
-
-**可前往`./logs/mys_goods_tool.log`查看日志**
+参考 [📃 代码结构](https://github.com/Ljzd-PRO/Mys_Goods_Tool/wiki/Source-Structure)
 
 ## 其他
-本项目已开启[🔗Github Actions](https://github.com/Ljzd-PRO/Mys_Goods_Tool/actions)。  
-欢迎[🔗指出Bug](https://github.com/Ljzd-PRO/Mys_Goods_Tool/issues)和[🔗贡献代码](https://github.com/Ljzd-PRO/Mys_Goods_Tool/pulls)👏
 
-开发版分支：[🔗dev](https://github.com/Ljzd-PRO/Mys_Goods_Tool/tree/dev/)
+- [**🔗完整说明文档**](https://github.com/Ljzd-PRO/Mys_Goods_Tool/wiki)
+
+- 仅供学习时参考
+
+- 相似项目推荐:  \
+  **mysTool - 米游社辅助工具插件**  \
+  简介：NoneBot2 插件 | 米游社工具-每日米游币任务、游戏签到、商品兑换、免抓包登录、原神树脂提醒  \
+  🔗 https://github.com/Ljzd-PRO/nonebot-plugin-mystool
+
+- [🔗Bug 反馈](https://github.com/Ljzd-PRO/Mys_Goods_Tool/issues)  
+- 如果你知道如何修复一些Bug和新增功能，也欢迎提交你的修订代码 [🔗Pull requests](https://github.com/Ljzd-PRO/Mys_Goods_Tool/pulls)
